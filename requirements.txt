@@ -1,0 +1,9 @@
+asyncio
+logging
+aiogram
+sqlite3
+json
+fastapi 
+uvicorn
+jose
+sqlachemy
