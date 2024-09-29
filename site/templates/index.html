@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .cont {
+            display: flex; /* Располагает элементы в линию */
+            flex-wrap: wrap; /* Позволяет элементам обтекать слой */
+            justify-content: space-between; /* Распределяет пространство между элементами */
+            margin-top: 20px; /* Отступ сверху от предыдущего элемента */
+        }
+        
+        .row {
+            flex: 0 1 30%; /* Задает ширину для каждого элемента (примерно 30%) */
+            margin-bottom: 20px; /* Отступ между строками */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <header class="text-center mb-4">
+            <h1>Профиль пользователя</h1>
+        </header>
+        
+        <section class="user-info mb-5">
+            <h2 class="mb-3">Информация о пользователе</h2>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>ФИО</strong> {{name}}</li>
+                <li class="list-group-item"><strong>Группа</strong> {{group}}</li>
+                <li class="list-group-item"><strong>Баллы</strong> {{points}}</li>
+            </ul>
+        </section>
+
+        <section class="product-list">
+            <h2 class="mb-3">Список товаров</h2>
+            <div class="cont">
+                {% for row in items %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">{{row[0]}}</h5>
+                                <p class="card-text">{{row[1]}}</p>
+                                <span class="font-weight-bold">Цена: {{row[2]}} Б</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+
+    <!-- Подключение Bootstrap JS и jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

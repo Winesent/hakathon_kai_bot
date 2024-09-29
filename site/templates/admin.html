@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ Панель</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Админ Панель</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <details>
+                    <summary>Список пользователей</summary>
+                    {% for row in students%}
+                <tr class="students">
+                    <form>
+                    <td>ФИО <input value={{row[0]}}> UID <input value={{row[1]}}> Группа <input value={{row[2]}}> 
+                        Баллы <input value={{row[3]}}> <a href="/delete?row={{row[1]}}">❌</a></td>
+                    </form>
+                </tr>
+                <br>
+            {% endfor %}
+            
+                </details>
+            </div>
+            <div class="col-md-6">
+                <h3>Список Сообщений</h3>
+                <select class="form-control" id="messageSelect">
+                    <option>Выберите сообщение</option>
+                    <option>Сообщение 1: Привет!</option>
+                    <option>Сообщение 2: Как дела?</option>
+                    <option>Сообщение 3: Успехов в учёбе!</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
